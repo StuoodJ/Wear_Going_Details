@@ -1,0 +1,52 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file("C:\\Users\\every\\Documents\\Wear Going Details Version Log\\wgtproject\\keystore.jks")
+            storePassword '&(HYG&^(#JF*BY##O@NU(@YBF(fsfrr33f5'
+            keyPassword '&(HYG&^(#JF*BY##O@NU(@YBF(fsfrr33f5'
+            keyAlias 'stuoodkey'
+        }
+    }
+    namespace 'com.stuood.weargoingdetails'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.stuood.weargoingdetails"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.8'
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
