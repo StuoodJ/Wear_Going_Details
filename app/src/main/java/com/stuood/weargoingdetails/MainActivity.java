@@ -2,6 +2,7 @@ package com.stuood.weargoingdetails;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -22,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         myWeb = findViewById(R.id.myWeb);
+        myWeb.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         myWeb.getSettings().setJavaScriptEnabled(true);
         myWeb.setWebViewClient(new WebViewClient());
-        myWeb.loadUrl("file:///android_asset/app.html");
+        myWeb.loadUrl("file:///android_asset/wgthtmlzip/index.html");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
